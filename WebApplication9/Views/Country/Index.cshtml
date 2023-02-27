@@ -1,0 +1,42 @@
+﻿@using WebApplication9.Models;
+@{
+    Layout = "_Layout";
+}
+@model List<Countries>
+<style>
+    .country-cards {
+        padding-bottom: 50px;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 0px;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+        .country-cards .card-body p {
+            font-size: 17px;
+            margin-top: 10px;
+        }
+
+            .country-cards .card-body p span {
+                font-size: 17px;
+                margin-top: 10px;
+                font-weight: 500;
+            }
+</style>
+
+        <ul class="country-cards">
+            @foreach (var item in Model)
+            {
+                <li class="col-lg-3 mt-5 text-center" style="list-style-type:none">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="@item.FlagPhoto" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p class="card-text"><span>Population:</span> @item.Population Million <br><span>Territory:</span> @item.Territory km </p>
+                               <a href="https://localhost:7176/home/detail" class="btn btn-primary">About This Country</a>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>

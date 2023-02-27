@@ -1,0 +1,153 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+@using WebApplication9.ViewModels;
+@using WebApplication9.Models;
+@model Countries;
+<style>
+    * {
+  box-sizing: border-box;
+  padding-inline-start: 0;
+}
+
+body {
+  /* background-color: black; */
+  font-family: "Open Sans";
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-picture,
+.profile-details {
+  flex: 1;
+  font-size: 16px;
+  font-size: 2.5vw;
+}
+
+.profile-wrapper {
+  background: #013864;
+  color: white;
+  height: 100vh;
+  display: flex;
+}
+
+img#profile-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+div.profile-details > div {
+  padding: 0em 1em 1em 1em;
+}
+
+div.profile-details > div > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+div.profile-details > div > ul li {
+  margin: 8px 0;
+  display: block;
+}
+
+div.profile-details > div > ul > li > div:nth-child(1) {
+  font-weight: 600;
+  font-size: 16px;
+  font-size: 2vw;
+  width: 30%;
+  display: inline-block;
+}
+
+div.profile-details > div > ul > li > div:nth-child(2) {
+  font-size: 16px;
+  font-size: 2vw;
+  text-align: left;
+  width: 68%;
+  display: inline-block;
+}
+
+.contact-action {
+  position: fixed;
+  bottom: 25px;
+  right: 15px;
+  width: 5em;
+  height: 5em;
+  cursor: pointer;
+}
+
+.back-action {
+  position: fixed;
+  top: 20px;
+  left: 15px;
+  width: 5em;
+  height: 5em;
+  cursor: pointer;
+}
+
+.contact-action .item,
+.back-action .item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  border-radius: 50%;
+  transition: 0.5s;
+  color: white;
+  background: transparent;
+  box-shadow: 1px 1px 5px #000;
+}
+
+.back-action .item {
+  font-size: 2em;
+}
+
+
+
+.item:hover {
+  color: #013864;
+  background: #fff;
+  box-shadow: 1px 1px 5px #000;
+}
+
+</style>
+
+
+<div class="profile-wrapper">
+    <div class="profile-picture">
+        <img id="profile-picture" src="https://www.who.int/images/default-source/countries-overview/flags/afg.tmb-768v.jpg">
+    </div>
+    <div class="profile-details">
+        <div>
+            <div class="profile-title">
+                <h1 id="profile-name" class="profile-name">Afganistan</h1>
+            </div>
+            <ul>
+                <li class="profile-notes">
+                    <div>Continent</div>
+                    <div id="profile-notes">Africa</div>
+                </li>
+                <li class="profile-number">
+                    <div>Population</div>
+                    <div id="profile-second-number">132 Million</div>
+                </li>
+                <li class="profile-email">
+                    <div>Territory</div>
+                    <div id="profile-primary-email">76.8 Km</div>
+                </li>
+               
+            </ul>
+        </div>
+    </div>
+</div>
+<div class='contact-action'>
+    <div class='item'>
+        <i class="fa fa-wrench"></i>
+    </div>
+</div>

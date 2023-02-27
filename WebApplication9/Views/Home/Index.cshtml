@@ -1,0 +1,97 @@
+﻿@using WebApplication9.ViewModels;
+
+@{
+    Layout = "_Layout";
+}
+
+@model HomeVM;
+
+<style>
+    .country-cards{
+        padding-bottom: 50px;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 0px;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .country-cards .card-body p{
+        font-size:17px;
+        margin-top:10px;
+    }
+
+        .country-cards .card-body p span {
+            font-size: 17px;
+            margin-top: 10px;
+            font-weight:500;
+        }
+    .continent-buttons{
+        padding-top:50px;
+        padding-bottom:50px;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 0px;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-right:56px;
+    }
+
+    button {
+        --c: #202091; /* the color*/
+        box-shadow: 0 0 0 .1em inset var(--c);
+        --_g: linear-gradient(var(--c) 0 0) no-repeat;
+        background: var(--_g) calc(var(--_p,0%) - 100%) 0%, var(--_g) calc(200% - var(--_p,0%)) 0%, var(--_g) calc(var(--_p,0%) - 100%) 100%, var(--_g) calc(200% - var(--_p,0%)) 100%;
+        background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+        outline-offset: .1em;
+        transition: background-size .6s, background-position 0s .4s;
+    }
+
+        button:hover {
+            --_p: 100%;
+            transition: background-position .6s, background-size 0s;
+            color:white
+        }
+
+        button:active {
+            box-shadow: 0 0 9e9q inset #0009;
+            background-color: var(--c);
+            color: #fff;
+        }
+
+
+    button {
+        font-family: system-ui, sans-serif;
+        font-size: 23px;
+        cursor: pointer;
+        padding: .4em .9em;
+        font-weight: 700;
+        border: none;
+        background-color:wheat;
+    }
+</style>
+
+<ul class="continent-buttons">
+    @foreach (var item in Model.Continents)
+    {
+        <li style="list-style-type:none">
+        <button> @item.ContinentName </button>
+        </li>
+    }
+</ul>
+
+
+<ul class="country-cards">
+    @foreach (var item in Model.Countries)
+    {
+        <li class="col-lg-3 mt-5 text-center" style="list-style-type:none">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="@item.FlagPhoto" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text"><span>Population:</span> @item.Population Million <br><span>Territory:</span> @item.Territory km </p>
+                    <a href="https://localhost:7176/home/detail/@item.Id" class="btn btn-primary">About This Country</a> <br>
+                </div>
+            </div>
+        </li>
+    }
+</ul>
